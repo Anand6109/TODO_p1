@@ -57,13 +57,14 @@ export const getMyProfile = (req, res) => {
 
 export const logout = (req, res) => {
     const user = req.user;
-    res.status(200).cookie("token", "", {
+    res.cookie("token", "", {
         expires: new Date(Date.now()),
-        sameSite: process.env.NODE_ENV === "development" ? "lax" : "none",
-        secure: process.env.NODE_ENV === "development" ? false : true,
-    }).json({
+        sameSite: process.env.NODE_ENV === "Development" ? "lax" : "none",
+        secure: process.env.NODE_ENV === "Development" ? false : true,
+    }).status(200).json({
         success: true,
         user: user,
     });
     console.log(`Cookie removed, logout done! User: ${user.name}`);
 };
+

@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin: [process.env.FRONTEND_URL],
+        origin: [process.env.FRONTEND],
         methods: ["GET","POST","PUT","DELETE"],
         credentials: true,
     })
@@ -27,7 +27,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/task", taskRouter);
 
 app.get('/', (req, res) => {
-    res.send("i will do it myself");
+    res.send("Backend code for TODO APP, Thank you !!!!!");
 })
 
 //using eror middleware
