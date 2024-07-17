@@ -48,12 +48,16 @@ export const register = async (req, res, next) => {
     }
 };
 
+// controllers/user.js
 export const getMyProfile = (req, res) => {
+    console.log("getMyProfile called");
+    console.log("User:", req.user);
     res.status(200).json({
         success: true,
         user: req.user,
     });
 };
+
 
 export const logout = (req, res) => {
     const user = req.user;
